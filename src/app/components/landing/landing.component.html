@@ -1,0 +1,188 @@
+<nav class="nav">
+  <a href="/"><img class="logo" src="/images/logo.svg" alt="Cup Store"></a>
+ <ul>
+    <li><a href="#why">Про нас</a></li>
+    <li><a href="#gallery">Роботи</a></li>
+    <li><a href="#process">Виробництво</a></li>
+    <li><a href="#cta">Замовити</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <video class="hero-media" [src]="heroVideoSrc" autoplay muted loop playsinline preload="metadata"></video>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <h1>Cup Store</h1>
+    <p>Виробник брендованих двошарових паперових стаканів. Наносимо логотип вашого бізнесу</p>
+    <div class="hero-ctas">
+      <a href="#cta"><button class="btn btn-primary">Замовити</button></a>
+      <a href="#gallery"><button class="btn btn-ghost">Наші роботи</button></a>
+    </div>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat" *ngFor="let s of stats">
+      <div class="num">{{ s.num }}</div>
+      <div class="label">{{ s.label }}</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="gallery-head">
+      <h2>Приклади робіт</h2>
+      <p>Кожен проєкт — реальне замовлення для кав'ярні, мережі або події.</p>
+    </div>
+    <div class="grid">
+      <div class="tile" [class.tile--wide]="item.size === 'wide'" *ngFor="let item of gallery">
+        <img [src]="item.image" >
+        <div class="cap"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div>
+      <h2>Чому саме двошаровий стакан</h2>
+      <p class="lead">Другий шар паперу — це не просто товщина. Це тепло, яке не обпікає руку, форма, яка не мнеться, і поверхня, на якій ваш друк виглядає чітко навіть на найтемнішому лого.</p>
+    </div>
+    <div>
+      <div class="why-block" *ngFor="let w of whyPoints">
+        <h3>{{ w.title }}</h3>
+        <p>{{ w.text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="process" id="process">
+  <div class="wrap">
+    <h2>Як ми доводимо стаканчик від макета до коробки</h2>
+    <div class="steps">
+      <div class="step" *ngFor="let s of steps">
+        <div class="n">{{ s.n }}</div>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="wrap">
+    <div>
+      <h2>Порахуємо ваш тираж</h2>
+      <p>Залиште контакти й орієнтовний обʼєм — надішлемо розрахунок вартості впродовж дня.</p>
+    </div>
+
+    <form #formEl (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+      <div class="row2">
+
+        <!-- ІМ'Я -->
+        <div class="field">
+          <input
+            type="text"
+            name="name"
+            placeholder="Ім'я"
+            [(ngModel)]="order.name"
+            required
+            minlength="2"
+            maxlength="60"
+            #name="ngModel"
+            [class.input-error]="name.invalid && (name.dirty || name.touched || f.submitted)"
+          >
+          <p class="field-error" *ngIf="name.invalid && (name.dirty || name.touched || f.submitted)">
+            <span *ngIf="name.errors?.['required']">Вкажіть ваше ім'я</span>
+            <span *ngIf="name.errors?.['minlength']">Ім'я має містити щонайменше 2 символи</span>
+          </p>
+        </div>
+
+        <!-- ТЕЛЕФОН -->
+        <div class="field">
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Телефон"
+            [(ngModel)]="order.phone"
+            required
+            pattern="^\+?[0-9\s\-\(\)]{10,}$"
+            #phone="ngModel"
+            [class.input-error]="phone.invalid && (phone.dirty || phone.touched || f.submitted)"
+          >
+          <p class="field-error" *ngIf="phone.invalid && (phone.dirty || phone.touched || f.submitted)">
+            <span *ngIf="phone.errors?.['required']">Вкажіть номер телефону</span>
+            <span *ngIf="phone.errors?.['pattern']">Введіть коректний номер телефону</span>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- EMAIL -->
+      <div class="field">
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          [(ngModel)]="order.email"
+          email
+          #email="ngModel"
+          [class.input-error]="email.invalid && (email.dirty || email.touched || f.submitted)"
+        >
+        <p class="field-error" *ngIf="email.invalid && (email.dirty || email.touched || f.submitted)">
+          Введіть коректний email
+        </p>
+      </div>
+
+      <!-- ТИРАЖ -->
+      <div class="field">
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Орієнтовний тираж, шт"
+          [(ngModel)]="order.quantity"
+          min="2500"
+          #quantity="ngModel"
+          [class.input-error]="quantity.invalid && (quantity.dirty || quantity.touched || f.submitted)"
+        >
+        <p class="field-error" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched || f.submitted)">
+          <span *ngIf="quantity.errors?.['min']">Мінімальний тираж — 2500 шт</span>
+        </p>
+      </div>
+
+      <!-- КОМЕНТАР -->
+      <textarea
+        name="message"
+        placeholder="Коментар до замовлення"
+        maxlength="500"
+        [(ngModel)]="order.message"
+      ></textarea>
+
+      <!-- ЗАГАЛЬНА ПОМИЛКА (мережа/сервер) -->
+      <p #errorEl class="form-error" style="display:none;"></p>
+
+      <button #submitBtn class="btn btn-primary" type="submit">
+        Надіслати заявку
+      </button>
+    </form>
+
+    <div #thanksEl class="thanks" style="display:none;">
+      <h3>Заявку надіслано</h3>
+      <p>Ми зв'яжемося з вами найближчим часом для уточнення деталей.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 CupStore — брендування двошарових паперових стаканчиків</div>
+    <div><a href="https://www.instagram.com/cupstore.kyiv/" target="_blank" rel="noopener">Instagram</a></div>
+  </div>
+</footer>
