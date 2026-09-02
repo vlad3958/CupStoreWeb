@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 interface GalleryItem {
   image: string;
+  alt: string;
   size: 'wide' | 'tall' | 'square';
 }
 
@@ -45,13 +46,13 @@ export class LandingComponent {
   ];
 
   gallery: GalleryItem[] = [
-    { image: './images/work-3.jpg', size: 'wide' },
-    { image: './images/work-2.jpg', size: 'tall' },
-    { image: './images/work-4.jpg', size: 'tall' },
-    { image: './images/work-5.jpeg', size: 'tall' },
-    { image: './images/work-6.jpeg', size: 'tall' },
-    { image: './images/work-7.jpeg', size: 'tall' },
-    { image: './images/work-8.jpeg', size: 'tall' }
+    { image: './images/work-3.jpg',  alt: 'Брендовані двошарові паперові стаканчики з логотипом', size: 'wide' },
+    { image: './images/work-2.jpg', alt: 'Паперові стаканчики ', size: 'tall' },
+    { image: './images/work-4.jpg', alt: 'Виробництво брендованих паперових стаканчиків', size: 'tall' },
+    { image: './images/work-5.jpeg', alt: 'Паперові стаканчики з брендуванням для кавʼярні', size: 'tall' },
+    { image: './images/work-6.jpeg', alt: 'Брендовані двошарові паперові стаканчики з логотипом', size: 'tall' },
+    { image: './images/work-7.jpeg', alt: 'Двошарові паперові стаканчики Cup Store',  size: 'tall' },
+    { image: './images/work-8.jpeg', alt: 'Паперові стаканчики з логотипом', size: 'tall' }
   ];
 
   steps = [

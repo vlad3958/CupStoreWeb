@@ -1,7 +1,7 @@
 <nav class="nav">
   <a href="/"><img class="logo" src="/images/logo.svg" alt="Cup Store"></a>
  <ul>
-    <li><a href="#why">Про нас</a></li>
+    <li><a href="#why">Про стаканчики</a></li>
     <li><a href="#gallery">Роботи</a></li>
     <li><a href="#process">Виробництво</a></li>
     <li><a href="#cta">Замовити</a></li>
@@ -12,8 +12,8 @@
   <video class="hero-media" [src]="heroVideoSrc" autoplay muted loop playsinline preload="metadata"></video>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <h1>Cup Store</h1>
-    <p>Виробник брендованих двошарових паперових стаканів. Наносимо логотип вашого бізнесу</p>
+    <h1>Брендовані двошарові паперові стаканчики</h1>
+    <p>Cup Store - виробник двошарових паперових стаканчиків. Наносимо логотип вашого бізнесу</p>
     <div class="hero-ctas">
       <a href="#cta"><button class="btn btn-primary">Замовити</button></a>
       <a href="#gallery"><button class="btn btn-ghost">Наші роботи</button></a>
@@ -39,7 +39,7 @@
     </div>
     <div class="grid">
       <div class="tile" [class.tile--wide]="item.size === 'wide'" *ngFor="let item of gallery">
-        <img [src]="item.image" >
+        <img [src]="item.image" [alt]="item.alt" />
         <div class="cap"></div>
       </div>
     </div>
@@ -49,7 +49,7 @@
 <section class="why" id="why">
   <div class="wrap">
     <div>
-      <h2>Чому саме двошаровий стакан</h2>
+      <h2>Переваги двошарових паперових стаканчиків</h2>
       <p class="lead">Другий шар паперу — це не просто товщина. Це тепло, яке не обпікає руку, форма, яка не мнеться, і поверхня, на якій ваш друк виглядає чітко навіть на найтемнішому лого.</p>
     </div>
     <div>
@@ -78,7 +78,7 @@
 <section class="cta" id="cta">
   <div class="wrap">
     <div>
-      <h2>Порахуємо ваш тираж</h2>
+      <h2>Замовити брендовані стаканчики</h2>
       <p>Залиште контакти й орієнтовний обʼєм — надішлемо розрахунок вартості впродовж дня.</p>
     </div>
 
