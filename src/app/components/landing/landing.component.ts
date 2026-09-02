@@ -45,17 +45,20 @@ export class LandingComponent {
   ];
 
   gallery: GalleryItem[] = [
-    { image: './images/work-1.jpg', size: 'wide' },
-    { image: './images/work-2.jpg', size: 'tall' },
     { image: './images/work-3.jpg', size: 'wide' },
+    { image: './images/work-2.jpg', size: 'tall' },
     { image: './images/work-4.jpg', size: 'tall' },
+    { image: './images/work-5.jpeg', size: 'tall' },
+    { image: './images/work-6.jpeg', size: 'tall' },
+    { image: './images/work-7.jpeg', size: 'tall' },
+    { image: './images/work-8.jpeg', size: 'tall' }
   ];
 
   steps = [
-    { n: '01', title: 'Макет', text: 'Надсилаєте лого — ми готуємо друкований макет і погоджуємо з вами кольори.' },
-    { n: '02', title: 'Друк', text: 'Флексодрук на двошаровому картоні — до 6 кольорів, включно з фірмовими Pantone.' },
+    { n: '01', title: 'Макет', text: 'Надсилаєте лого — ми готуємо макет і погоджуємо з вами кольори.' },
+    { n: '02', title: 'Друк', text: 'Виконуємо офсетний повноколірний друк. За бажанням - використовуючи ламінацію на другому шарі.' },
     { n: '03', title: 'Формування', text: 'Стаканчик формується на лінії та проходить контроль якості.' },
-    { n: '04', title: 'Пакування', text: 'Партія пакується під ваше замовлення й готова до відвантаження.' },
+    { n: '04', title: 'Пакування', text: 'Партія пакується під ваше замовлення й готується до відвантаження.' },
   ];
 
   order: OrderForm = { name: '', phone: '', email: '', quantity: '', message: '' };
