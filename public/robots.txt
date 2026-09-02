@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cup-store.com.ua/sitemap.xml
