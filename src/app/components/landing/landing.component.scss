@@ -40,9 +40,9 @@ p{margin:0;}
   color:#fff;
 }
 
-.nav img{height:120px;width:auto;}
+.nav img{height:140px;width:auto;}
 .nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0; font-weight: 600;}
-@media(max-width:700px){.nav ul{display:none;} .nav{padding:18px 20px; position: absolute;}}
+@media(max-width:700px){.nav img{height:80px;}  .nav ul{display:none;} .nav{padding:10px 20px 18px 20px; position: absolute;}}
 
 /* HERO */
 .hero{
