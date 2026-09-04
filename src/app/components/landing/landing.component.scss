@@ -180,7 +180,8 @@ p{margin:0;}
   gap:8px;
   margin-top:32px;
   padding-top:24px;
-  border-top:1px solid rgba(23,20,16,.15);
+  margin-bottom: 14px;
+  border-top:2px solid rgba(23,20,16,.15);
 }
 .contact-info__label{
   text-transform:uppercase;
@@ -193,6 +194,15 @@ p{margin:0;}
 }
 .contact-info__item:hover{
   color:var(--red);
+}
+
+.btn-ghost--dark{
+  color:var(--ink);
+  border:1px solid rgba(23,20,16,.35);
+}
+.btn-ghost--dark:hover{
+  border-color:var(--ink);
+  background:rgba(23,20,16,.05);
 }
 
 form{display:flex;flex-direction:column;gap:14px;}
