@@ -35,7 +35,7 @@ export class LandingComponent {
   heroVideoSrc = '/video/production.mp4';
 
   stats = [
-    { num: '2500 шт', label: 'мінімальний тираж' },
+    { num: '10000 шт', label: 'мінімальний тираж' },
     { num: '110 мл - 500 мл', label: 'обʼєми стаканчиків' },
   ];
 
